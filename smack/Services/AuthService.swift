@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class AuthService {
     
@@ -49,10 +50,7 @@ class AuthService {
         
         let lowerCaseEmail = email.lowercased()
         
-        let header = [
-            // exactly what is present in postman
-            "Content-Type": "application/json; charset=utf-8"
-        ]
+        
         
         let body: [String:Any] = [
             // should match exactly the body found in postman
@@ -60,7 +58,7 @@ class AuthService {
             "password": password
         ]
         
-        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseString { (response) in
+        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseString { (response) in
             //renaming what we get as 'response'
             if response.result.error == nil {
                 completion(true)
@@ -72,9 +70,99 @@ class AuthService {
         
     }
     
+    func loginUser(email: String, password: String, completion: @escaping CompletionHandler) {
+        
+        let lowerCaseEmail = email.lowercased()
+        
+        let body: [String:Any] = [
+            // should match exactly the body found in postman
+            "email": lowerCaseEmail,
+            "password": password
+        ]
+        
+        Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+            if response.result.error == nil {
+//                if let json = response.value as? Dictionary<String, Any> {
+//                    if let email = json["user"] as? String {
+//                        self.userEmail = email
+//                    }
+//                    if let token = json["token"] as? String {
+//                        self.authToken = token
+//                    }
+//
+//                }
+                // Using swiftyJSON
+                //swiftyJSON needs the data
+                guard let data = response.data, let json = try? JSON(data: data) else { return }
+                //guard let json = try? JSON(data: data) else {return}; chained with previous line
+                self.userEmail = json["user"].stringValue
+                self.authToken = json["token"].stringValue
+                
+                //Method 2
+//                do {
+//
+//                    let json = try JSON(data: data)
+//                    self.userEmail = json["user"].stringValue
+//                    self.authToken = json["token"].stringValue
+//
+//                } catch {
+//                    debugPrint("Error converting to json object")
+//                }
+                //Method 3
+//                if let json = try? JSON(data: data) {
+//                    self.userEmail = json["user"].stringValue
+//                    self.authToken = json["token"].stringValue
+//                }
+                
+                
+                self.isLoggedIn = true
+                //there is no errors
+                completion(true)
+            } else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+        
+    }
+    
+    func createUser(name: String, email: String, avatarName: String, avatarColor: String, completion: @escaping CompletionHandler) {
+        let lowerCaseEmail = email.lowercased()
+        let body: [String:Any] = [
+            "name": name,
+            "email": lowerCaseEmail,
+            "avatarName": avatarName,
+            "avatarColor": avatarColor
+        
+        ]
+        
+        let header = [
+            "Authorization": "Bearer \(AuthService.instance.authToken)",
+            "Content-Type": "application/json; charset=utf-8"
+        ]
+        
+        Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            if response.result.error == nil {
+                
+                guard let data = response.data, let json = try? JSON(data: data) else {return}
+                let id = json["_id"].stringValue
+                let color = json["avatarColor"].stringValue
+                let avatarName = json["avatarName"].stringValue
+                let email = json["email"].stringValue
+                let name = json["name"].stringValue
+                
+                UserDataService.instance.setUserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
+                completion(true)
+            } else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+    }
     
     
     
+    //END
 }
 
 
