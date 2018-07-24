@@ -554,7 +554,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="oUc-1e-pz8" id="lLI-FH-ybv"/>
-                        <outlet property="sementControl" destination="GeW-xs-cQo" id="uRQ-r7-Yz5"/>
+                        <outlet property="segmentControl" destination="GeW-xs-cQo" id="u8Z-Wd-Uce"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="og0-MI-xLV" userLabel="First Responder" sceneMemberID="firstResponder"/>

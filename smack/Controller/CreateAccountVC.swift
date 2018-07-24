@@ -27,6 +27,14 @@ class CreateAccountVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //check to see if avatar has been set
+        if UserDataService.instance.avatarName != "" {
+            userImg.image = UIImage(named: UserDataService.instance.avatarName)
+            avatarName = UserDataService.instance.avatarName
+        }
+    }
 
     // the VC (yellow dot) was controlled+dragged to the exit, and the segue 'action' made in the channelVC "@IBAction func prepareForUnWind" selected. Click on the unwind segue and add an identifier name
     @IBAction func closePressed(_ sender: Any) {
