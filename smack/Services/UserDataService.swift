@@ -32,4 +32,40 @@ class UserDataService {
         self.avatarName = avatarName
     }
     
+    func returnUIColor(components: String) -> UIColor {
+        // reference  "avatarColor": "[0.52156862745098, 0.92156862745098, 0.0274509803921569, 1]",
+        //scanner converts characters of an NSString object into number and string values
+        let scanner = Scanner(string: components)
+        // four characters, [, ], a comma, and a space
+        let skipped = CharacterSet(charactersIn: "[], ")
+        let comma = CharacterSet(charactersIn: ",")
+        scanner.charactersToBeSkipped = skipped
+        
+        //NSString is what scanner converts the values into
+        var r, g, b, a : NSString?
+        
+        //from beginning, it will skip [ and go up to the comma]
+        scanner.scanUpToCharacters(from: comma, into: &r)
+        scanner.scanUpToCharacters(from: comma, into: &g)
+        scanner.scanUpToCharacters(from: comma, into: &b)
+        scanner.scanUpToCharacters(from: comma, into: &a)
+        
+        let defaultColor = UIColor.lightGray
+        
+        guard let rUnwrapped = r else {return defaultColor}
+        guard let gUnwrapped = g else {return defaultColor}
+        guard let bUnwrapped = b else {return defaultColor}
+        guard let aUnwrapped = a else {return defaultColor}
+        
+        //No straight convertion from string to CGfloat... must go to double and then CGFloat
+        let rfloat = CGFloat(rUnwrapped.doubleValue)
+        let gfloat = CGFloat(gUnwrapped.doubleValue)
+        let bfloat = CGFloat(bUnwrapped.doubleValue)
+        let afloat = CGFloat(aUnwrapped.doubleValue)
+        
+        let newColor = UIColor(red: rfloat, green: gfloat, blue: bfloat, alpha: afloat)
+        
+        return newColor
+    }
+    
 }

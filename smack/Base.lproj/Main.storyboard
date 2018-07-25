@@ -112,7 +112,7 @@
                                     <action selector="loginBtnPressed:" destination="0LQ-tN-fOj" eventType="touchUpInside" id="CaO-GQ-YX7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Xdw-SB-2fj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Xdw-SB-2fj" customClass="CircleImage" customModule="smack" customModuleProvider="target">
                                 <rect key="frame" x="20" y="572" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Kci-Wf-xSx"/>
@@ -172,6 +172,7 @@
                     </view>
                     <connections>
                         <outlet property="loginBtn" destination="a8v-aE-iff" id="V4f-qA-12M"/>
+                        <outlet property="userImg" destination="Xdw-SB-2fj" id="pjb-Qo-bM6"/>
                         <segue destination="2e3-Ph-v70" kind="show" identifier="toLogin" id="8NE-iF-5Nh"/>
                     </connections>
                 </viewController>
@@ -429,24 +430,30 @@
                                     <action selector="pickAvatarPressed:" destination="3QV-xe-wra" eventType="touchUpInside" id="0DM-Ef-7fk"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="OPd-wn-NPQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="OPd-wn-NPQ" customClass="CircleImage" customModule="smack" customModuleProvider="target">
                                 <rect key="frame" x="137" y="299" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="1Qg-nw-CW0"/>
                                     <constraint firstAttribute="width" constant="100" id="g3k-M3-ki5"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="djN-Bx-PzJ">
+                                <rect key="frame" x="169" y="215" width="37" height="37"/>
+                                <color key="color" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Fon-Wz-fZ5" firstAttribute="width" secondItem="OPd-wn-NPQ" secondAttribute="width" id="4bz-6X-fa9"/>
                             <constraint firstItem="GGm-iH-64M" firstAttribute="top" secondItem="Fon-Wz-fZ5" secondAttribute="bottom" constant="10" id="6Pa-B9-5lr"/>
                             <constraint firstItem="Erb-dw-VDK" firstAttribute="top" secondItem="M7C-iP-43w" secondAttribute="bottom" constant="40" id="9eE-yr-jtb"/>
+                            <constraint firstItem="djN-Bx-PzJ" firstAttribute="centerY" secondItem="4sd-kw-bd0" secondAttribute="centerY" constant="-100" id="Fmd-2f-er1"/>
                             <constraint firstItem="M7C-iP-43w" firstAttribute="centerX" secondItem="4sd-kw-bd0" secondAttribute="centerX" id="K4l-Be-5C4"/>
                             <constraint firstItem="dmj-cy-iTz" firstAttribute="bottom" secondItem="63u-7S-c0b" secondAttribute="bottom" constant="20" id="NTb-aG-3vv"/>
                             <constraint firstItem="63u-7S-c0b" firstAttribute="centerX" secondItem="4sd-kw-bd0" secondAttribute="centerX" id="Qfx-3b-Myi"/>
                             <constraint firstItem="M7C-iP-43w" firstAttribute="top" secondItem="dmj-cy-iTz" secondAttribute="top" constant="40" id="fsy-tM-RFX"/>
                             <constraint firstItem="OPd-wn-NPQ" firstAttribute="top" secondItem="Erb-dw-VDK" secondAttribute="bottom" constant="40" id="gnO-4H-Wtq"/>
+                            <constraint firstItem="djN-Bx-PzJ" firstAttribute="centerX" secondItem="4sd-kw-bd0" secondAttribute="centerX" id="iNe-Ww-zQS"/>
                             <constraint firstItem="Fon-Wz-fZ5" firstAttribute="centerX" secondItem="4sd-kw-bd0" secondAttribute="centerX" id="ivO-OD-SEK"/>
                             <constraint firstItem="OPd-wn-NPQ" firstAttribute="centerX" secondItem="4sd-kw-bd0" secondAttribute="centerX" id="jW9-pt-9U9"/>
                             <constraint firstItem="dmj-cy-iTz" firstAttribute="trailing" secondItem="TdF-UL-ASE" secondAttribute="trailing" constant="20" id="n9O-30-s15"/>
@@ -460,6 +467,7 @@
                     <connections>
                         <outlet property="emailText" destination="Wfb-76-Jm5" id="jZ6-q9-LOl"/>
                         <outlet property="passTxt" destination="6EU-g4-9Ra" id="Hfo-BE-xXl"/>
+                        <outlet property="spinner" destination="djN-Bx-PzJ" id="9JO-db-q6y"/>
                         <outlet property="userImg" destination="OPd-wn-NPQ" id="6I9-Vr-zcA"/>
                         <outlet property="usernameTxt" destination="55k-s3-BvK" id="xnG-NU-dGK"/>
                         <segue destination="83S-hO-voK" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="DGu-SI-AM3"/>
