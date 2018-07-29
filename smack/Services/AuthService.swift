@@ -57,9 +57,10 @@ class AuthService {
             "email": lowerCaseEmail,
             "password": password
         ]
-        
+        // this first request we want to get backa string '.responseString', part of the API; in the other calls, we will be asking back for JSON '.responseJSON
         Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseString { (response) in
             //renaming what we get as 'response'
+            
             if response.result.error == nil {
                 completion(true)
             } else {
