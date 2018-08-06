@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1837EA802118A8F1001CF913 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1837EA7F2118A8F1001CF913 /* Message.swift */; };
 		183ABE7821167DA40088CD88 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183ABE7721167DA40088CD88 /* MessageService.swift */; };
 		183ABE7A21167F690088CD88 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183ABE7921167F690088CD88 /* Channel.swift */; };
 		1856E76D2117267100D31155 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1856E76C2117267100D31155 /* ChannelCell.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1837EA7F2118A8F1001CF913 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		183ABE7721167DA40088CD88 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
 		183ABE7921167F690088CD88 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		1856E76C2117267100D31155 /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				183ABE7921167F690088CD88 /* Channel.swift */,
+				1837EA7F2118A8F1001CF913 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				C4CBD222210027FA00085A22 /* ChannelVC.swift in Sources */,
 				C41BA7332107444400F42639 /* AvatarPickerVC.swift in Sources */,
 				C418E491210370E0003910DC /* RoundedButton.swift in Sources */,
+				1837EA802118A8F1001CF913 /* Message.swift in Sources */,
 				183ABE7A21167F690088CD88 /* Channel.swift in Sources */,
 				C41BA7372107F7CD00F42639 /* CircleImage.swift in Sources */,
 				183ABE7821167DA40088CD88 /* MessageService.swift in Sources */,
