@@ -59,6 +59,7 @@ class MessageService {
                 self.clearMessage()
                 
                 guard let data = response.data else {return}
+                
                 do {
                     guard let json = try JSON(data: data).array else {return}
                     for item in json {
@@ -71,7 +72,9 @@ class MessageService {
                         let timeStamp = item["timeStamp"].stringValue
                         
                         let message = Message(message: messageBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
+                        
                         self.messages.append(message)
+                        
                     }
                     
                 } catch {
@@ -85,6 +88,7 @@ class MessageService {
                 
             } else {
                 debugPrint(response.error as Any)
+                print("find all messages")
                 completion(false)
             }
         }
