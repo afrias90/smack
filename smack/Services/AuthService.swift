@@ -17,6 +17,7 @@ class AuthService {
     //not heavy data, also insecure so no passwords
     let defaults = UserDefaults.standard
     
+    
     var isLoggedIn : Bool {
         get {
             return defaults.bool(forKey: LOGGED_IN_KEY)
@@ -179,6 +180,7 @@ class AuthService {
         let avatarName = json["avatarName"].stringValue
         let email = json["email"].stringValue
         let name = json["name"].stringValue
+        
         
         UserDataService.instance.setUserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
         //no need to return since we are just setting new variables

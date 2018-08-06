@@ -75,6 +75,7 @@
                         <viewLayoutGuide key="safeArea" id="PgU-af-oZ5"/>
                     </view>
                     <connections>
+                        <outlet property="channelNameLabel" destination="pit-eA-zcr" id="yix-3M-F8F"/>
                         <outlet property="menuBtn" destination="TDd-0R-DUA" id="J6Y-LR-ac8"/>
                     </connections>
                 </viewController>
@@ -152,6 +153,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcN-Wy-FlU">
                                 <rect key="frame" x="281" y="83" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
+                                <connections>
+                                    <action selector="addChannelPressed:" destination="0LQ-tN-fOj" eventType="touchUpInside" id="gUi-1S-kF7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
