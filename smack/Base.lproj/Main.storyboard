@@ -50,7 +50,7 @@
                                         <state key="normal" image="smackBurger"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pit-eA-zcr">
-                                        <rect key="frame" x="161" y="45.5" width="52" height="21"/>
+                                        <rect key="frame" x="161.5" y="45.5" width="52" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.9786908586651788" green="0.98671539948103215" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -143,6 +143,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsM-nP-QLL">
+                                <rect key="frame" x="8" y="602" width="359" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -158,6 +164,10 @@
                             <constraint firstItem="PgU-af-oZ5" firstAttribute="trailing" secondItem="5fd-pn-FvP" secondAttribute="trailing" id="WrE-vQ-hrc"/>
                             <constraint firstItem="kEa-1c-7Fs" firstAttribute="trailing" secondItem="PgU-af-oZ5" secondAttribute="trailing" id="X6N-3S-Gwx"/>
                             <constraint firstItem="PgU-af-oZ5" firstAttribute="trailing" secondItem="zQc-H0-C6l" secondAttribute="trailing" constant="8" id="dpR-MC-A9O"/>
+                            <constraint firstAttribute="trailing" secondItem="HsM-nP-QLL" secondAttribute="trailing" constant="8" id="igx-ed-1Ck"/>
+                            <constraint firstItem="HsM-nP-QLL" firstAttribute="top" secondItem="pAS-rW-Aj9" secondAttribute="bottom" constant="5" id="ska-TR-pcW"/>
+                            <constraint firstItem="HsM-nP-QLL" firstAttribute="leading" secondItem="PgU-af-oZ5" secondAttribute="leading" constant="8" id="sus-Nt-ZIx"/>
+                            <constraint firstItem="5fd-pn-FvP" firstAttribute="top" secondItem="HsM-nP-QLL" secondAttribute="bottom" constant="5" id="vUx-nm-Srh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PgU-af-oZ5"/>
                     </view>
@@ -167,6 +177,7 @@
                         <outlet property="messageTextBox" destination="5fd-pn-FvP" id="BQF-WU-pXG"/>
                         <outlet property="sendBtn" destination="zQc-H0-C6l" id="YHp-fB-SIr"/>
                         <outlet property="tableView" destination="pAS-rW-Aj9" id="pu2-I5-fuD"/>
+                        <outlet property="typingUsersLbl" destination="HsM-nP-QLL" id="mpB-5d-WLp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LCj-dN-sRw" userLabel="First Responder" sceneMemberID="firstResponder"/>
